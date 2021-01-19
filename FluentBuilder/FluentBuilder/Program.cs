@@ -64,7 +64,7 @@ namespace FluentBuilder
             shoppingCartBuilder.AddItems(products);
             shoppingCartBuilder.AddDiscount(2.0);
             shoppingCartBuilder.AddUser(user);
-            var shoppingCart4 = shoppingCartBuilder.ShoppingCart;
+            var shoppingCart4 = shoppingCartBuilder.GetShoppingCart();
 
             Console.WriteLine(shoppingCart4);
 

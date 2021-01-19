@@ -6,26 +6,31 @@ namespace FluentBuilder.Builder
 {
     public class ShoppingCartBuilder
     {
-        public ShoppingCart ShoppingCart = new ShoppingCart();
+        private ShoppingCart _shoppingCart = new ShoppingCart();
 
         public void AddId(Guid id)
         {
-            ShoppingCart.Id = id;
+            _shoppingCart.Id = id;
         }
 
         public void AddItems(List<Product> items)
         {
-            ShoppingCart.Items = items;
+            _shoppingCart.Items = items;
         }
 
         public void AddDiscount(double discount)
         {
-            ShoppingCart.Discount = discount;
+            _shoppingCart.Discount = discount;
         }
 
         public void AddUser(User user)
         {
-            ShoppingCart.User = user;
+            _shoppingCart.User = user;
+        }
+
+        public ShoppingCart GetShoppingCart()
+        {
+            return _shoppingCart;
         }
     }
 }

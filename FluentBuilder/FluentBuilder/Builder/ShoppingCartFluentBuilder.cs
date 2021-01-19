@@ -6,7 +6,7 @@ namespace FluentBuilder.Builder
 {
     public class ShoppingCartFluentBuilder
     {
-        private readonly ShoppingCart _shoppingCart = new ShoppingCart();
+        private ShoppingCart _shoppingCart = new ShoppingCart();
 
         public ShoppingCartFluentBuilder WithId(Guid id)
         {
