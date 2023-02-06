@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 25.0.1704.2
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeconstructObjects", "DeconstructObjescs\DeconstructObjects.csproj", "{B8F16829-F7F7-46A1-A299-17056C1E3D63}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeconstructObjects", "DeconstructObjects\DeconstructObjects.csproj", "{B8F16829-F7F7-46A1-A299-17056C1E3D63}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
