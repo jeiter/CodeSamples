@@ -22,7 +22,7 @@ internal class Program
 
         // Example: deconstruct record
         (double latitude3, double longitude3) = new LocationRecord(52.5141156, 13.2857691);
-        Console.WriteLine($"[Object] lat: {latitude3}, long: {longitude3}"); // lat: 52.5141156, long: 13.2857691
+        Console.WriteLine($"[Record] lat: {latitude3}, long: {longitude3}"); // lat: 52.5141156, long: 13.2857691
     }
 
     /// <summary>
