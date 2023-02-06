@@ -1,5 +1,6 @@
 ﻿namespace DeconstructObjects
 {
+	/*
 	public class Location
 	{
 		public double Latitude { get; set; }
@@ -10,5 +11,7 @@
 			latitude = Latitude;
 			longitude = Longitude;
 		}
-	}
+	}*/
+
+	public record Location(double latitude, double longitude);
 }
