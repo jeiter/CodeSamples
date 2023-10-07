@@ -23,11 +23,11 @@ public class BooksController : ControllerBase
     }
 
     [HttpGet(Name = "GetBooks")]
-    public async Task<IEnumerable<Book>> GetAsync()
+    public async Task<IEnumerable<BookResponse>> GetAsync()
     {
         _logger.LogInformation("Get Books");
         var books = await _mediator.Send(new GetBooksQuery());
-        return _mapper.Map<IEnumerable<Models.Book>>(books);
+        return _mapper.Map<IEnumerable<Models.BookResponse>>(books);
     }
 }
 
