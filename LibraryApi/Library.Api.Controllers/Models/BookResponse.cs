@@ -1,6 +1,6 @@
 ﻿namespace Library.Api.Models;
 
-public class Book
+public class BookResponse
 {
     public string Title { get; set; }
 
