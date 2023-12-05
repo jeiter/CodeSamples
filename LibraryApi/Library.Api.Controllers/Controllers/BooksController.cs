@@ -3,6 +3,7 @@ using Library.Api.Models;
 using Library.Core.Application.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace Library.Api.Controllers;
 
