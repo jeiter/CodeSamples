@@ -14,16 +14,19 @@ variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
-steps:
-- task: DotNetCoreCLI@2
-  displayName: Restore Packages
-  inputs:
-    command: 'restore'
-    projects: ${{ variables.solution }}
-    feedsToUse: 'select'
+jobs:
+  - job: build_and_test
+    displayName: Build and Test
+    steps:
+    - task: DotNetCoreCLI@2
+      displayName: Restore Packages
+      inputs:
+        command: 'restore'
+        projects: ${{ variables.solution }}
+        feedsToUse: 'select'
 
-- task: DotNetCoreCLI@2
-  displayName: Build Solution
-  inputs:
-    command: 'build'
-    projects: ${{ variables.solution }}
+    - task: DotNetCoreCLI@2
+      displayName: Build Solution
+      inputs:
+        command: 'build'
+        projects: ${{ variables.solution }}
