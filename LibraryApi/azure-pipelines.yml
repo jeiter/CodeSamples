@@ -7,13 +7,15 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  solution: './*.sln'
+  solution: '**/*.sln'
+  workingDirectory: './LibraryApi'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
 steps:
 - task: DotNetCoreCLI@2
   displayName: Restore Packages
+  workingDirectory: ${{ variables.workingDirectory }}
   inputs:
     command: 'restore'
     projects: ${{ variables.solution }}
@@ -21,6 +23,7 @@ steps:
 
 - task: DotNetCoreCLI@2
   displayName: Build Solution
+  workingDirectory: ${{ variables.workingDirectory }}
   inputs:
     command: 'build'
     projects: ${{ variables.solution }}
