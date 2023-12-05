@@ -1,27 +1,28 @@
-﻿using Library.Core.Application.Ports;
+﻿using AutoMapper;
+using Library.Core.Application.Ports;
 using Library.Core.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Library.Data.Adapters.Sql.Adapters;
 
 public class BooksAdapter : IBooksPort
 {
-	public BooksAdapter()
+    private LibraryContext _libraryContext;
+    private IMapper _mapper;
+
+	public BooksAdapter(LibraryContext libraryContext, IMapper mapper)
 	{
+        _mapper = mapper;
+        _libraryContext = libraryContext;
 	}
 
     /// <inheritdoc />
     public async Task<IEnumerable<Book>> GetBooks(CancellationToken cancellationToken)
     {
-        var task = Task.Run(() => Enumerable.Range(1, 5).Select(index => new Book
-        {
-            Title = "This is a Book",
-            Author = "John Doe",
-            Summary = "This is just a book summary",
-            Publisher = "Fred Publisher",
-            NumberOfPages = 215,
-            PublishedOn = DateTime.Now.AddDays(index),
-        }).ToArray());
-
-        return await task;
+        var books = await _libraryContext.Books
+            .OrderBy(b => b.Title)
+            .ToListAsync();
+         
+        return _mapper.Map<IEnumerable<Book>>(books);
     }
 }

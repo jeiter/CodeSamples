@@ -13,7 +13,7 @@ builder.Services.AddApplicationServices();
 builder.Services.AddApiServices();
 
 // Add Data Services
-builder.Services.AddSqlDataServices();
+builder.Services.AddSqlDataServices(builder.Configuration.GetConnectionString("LibraryDatabase"));
 
 #endregion
 

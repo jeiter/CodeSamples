@@ -1,0 +1,27 @@
+services:
+  library-api:
+    build: .
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    ports:
+      - "80:8000"
+    depends_on:
+      - library-db
+  
+  library-db:
+    image: postgres
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: S0mePassw0rd
+      POSTGRES_USER: library_api
+      POSTGRES_DB: library
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+        - ./data/postgres/pgdata:/var/lib/postgresql/data/pgdata
+    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 1s
+      timeout: 5s
+      retries: 10
