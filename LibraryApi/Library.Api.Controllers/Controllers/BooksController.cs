@@ -26,8 +26,9 @@ public class BooksController : ControllerBase
     public async Task<IEnumerable<BookResponse>> GetAsync()
     {
         _logger.LogInformation("Get Books");
+
         var books = await _mediator.Send(new GetBooksQuery());
+
         return _mapper.Map<IEnumerable<Models.BookResponse>>(books);
     }
 }
-
