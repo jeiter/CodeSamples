@@ -2,6 +2,9 @@ trigger:
   branches:
     include:
     - '*'
+  paths:
+    include:
+    - 'LibraryApi/*'
 
 pool:
   vmImage: 'ubuntu-latest'
