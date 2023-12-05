@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 25.0.1706.4
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Api.Host", "Library.Api.Host\Library.Api.Host.csproj", "{EC0ED4B2-115B-4351-B0A0-41B091D8B5FE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Api.Hosting", "Library.Api.Hosting\Library.Api.Hosting.csproj", "{EC0ED4B2-115B-4351-B0A0-41B091D8B5FE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Core.Application", "Library.Core.Application\Library.Core.Application.csproj", "{4DD7C84B-2BA3-42FA-98E5-79EB54CFBD73}"
 EndProject
