@@ -1,4 +1,5 @@
-﻿using Library.Core.Models;
+﻿using Library.Core.Application.Ports;
+using Library.Core.Models;
 using MediatR;
 
 namespace Library.Core.Application.Queries
@@ -7,21 +8,16 @@ namespace Library.Core.Application.Queries
 
     public class GetBooksHandler : IRequestHandler<GetBooksQuery, IEnumerable<Book>>
     {
+        private readonly IBooksPort _booksAdapter;
+
+        public GetBooksHandler(IBooksPort booksAdapter)
+        {
+            _booksAdapter = booksAdapter;
+        }
       
         public async Task<IEnumerable<Book>> Handle(GetBooksQuery request, CancellationToken cancellationToken)
         {
-            var task = Task.Run(() => Enumerable.Range(1, 5).Select(index => new Book
-            {
-                Title = "This is a Book",
-                Author = "John Doe",
-                Summary = "This is just a book summary",
-                Publisher = "Fred Publisher",
-                NumberOfPages = 215,
-                PublishedOn = DateTime.Now.AddDays(index),
-            })
-            .ToArray());
-
-            return await task;
+            return await _booksAdapter.GetBooks(cancellationToken);
         }
     }
 }

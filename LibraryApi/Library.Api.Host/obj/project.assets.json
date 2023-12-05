@@ -246,7 +246,6 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Library.Core.Models": "1.0.0",
           "MediatR": "12.2.0"
         },
         "compile": {
@@ -256,14 +255,19 @@
           "bin/placeholder/Library.Core.Application.dll": {}
         }
       },
-      "Library.Core.Models/1.0.0": {
+      "Library.Data.Adapters.Sql/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "AutoMapper": "12.0.1",
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
+          "Library.Core.Application": "1.0.0"
+        },
         "compile": {
-          "bin/placeholder/Library.Core.Models.dll": {}
+          "bin/placeholder/Library.Data.Adapters.Sql.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Library.Core.Models.dll": {}
+          "bin/placeholder/Library.Data.Adapters.Sql.dll": {}
         }
       }
     }
@@ -848,16 +852,17 @@
       "path": "../Library.Core.Application/Library.Core.Application.csproj",
       "msbuildProject": "../Library.Core.Application/Library.Core.Application.csproj"
     },
-    "Library.Core.Models/1.0.0": {
+    "Library.Data.Adapters.Sql/1.0.0": {
       "type": "project",
-      "path": "../Library.Core.Models/Library.Core.Models.csproj",
-      "msbuildProject": "../Library.Core.Models/Library.Core.Models.csproj"
+      "path": "../Library.Data.Adapters/Library.Data.Adapters.Sql.csproj",
+      "msbuildProject": "../Library.Data.Adapters/Library.Data.Adapters.Sql.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "Library.Api.Controllers >= 1.0.0",
       "Library.Core.Application >= 1.0.0",
+      "Library.Data.Adapters.Sql >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.5.0"
     ]
   },
@@ -891,6 +896,9 @@
             },
             "/Users/joeiprivat/Documents/Projects/CodeSamples/LibraryApi/Library.Core.Application/Library.Core.Application.csproj": {
               "projectPath": "/Users/joeiprivat/Documents/Projects/CodeSamples/LibraryApi/Library.Core.Application/Library.Core.Application.csproj"
+            },
+            "/Users/joeiprivat/Documents/Projects/CodeSamples/LibraryApi/Library.Data.Adapters/Library.Data.Adapters.Sql.csproj": {
+              "projectPath": "/Users/joeiprivat/Documents/Projects/CodeSamples/LibraryApi/Library.Data.Adapters/Library.Data.Adapters.Sql.csproj"
             }
           }
         }

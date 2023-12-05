@@ -51,9 +51,7 @@
 /Users/joeiprivat/Documents/Projects/CodeSamples/LibraryApi/Library.Api.Host/bin/Debug/net6.0/Swashbuckle.AspNetCore.SwaggerGen.dll
 /Users/joeiprivat/Documents/Projects/CodeSamples/LibraryApi/Library.Api.Host/bin/Debug/net6.0/Swashbuckle.AspNetCore.SwaggerUI.dll
 /Users/joeiprivat/Documents/Projects/CodeSamples/LibraryApi/Library.Api.Host/bin/Debug/net6.0/Library.Core.Application.dll
-/Users/joeiprivat/Documents/Projects/CodeSamples/LibraryApi/Library.Api.Host/bin/Debug/net6.0/Library.Core.Models.dll
 /Users/joeiprivat/Documents/Projects/CodeSamples/LibraryApi/Library.Api.Host/bin/Debug/net6.0/Library.Core.Application.pdb
-/Users/joeiprivat/Documents/Projects/CodeSamples/LibraryApi/Library.Api.Host/bin/Debug/net6.0/Library.Core.Models.pdb
 /Users/joeiprivat/Documents/Projects/CodeSamples/LibraryApi/Library.Api.Host/obj/Debug/net6.0/Library.Api.Host.csproj.AssemblyReference.cache
 /Users/joeiprivat/Documents/Projects/CodeSamples/LibraryApi/Library.Api.Host/obj/Debug/net6.0/Library.Api.Host.GeneratedMSBuildEditorConfig.editorconfig
 /Users/joeiprivat/Documents/Projects/CodeSamples/LibraryApi/Library.Api.Host/obj/Debug/net6.0/Library.Api.Host.AssemblyInfoInputs.cache
@@ -72,3 +70,5 @@
 /Users/joeiprivat/Documents/Projects/CodeSamples/LibraryApi/Library.Api.Host/obj/Debug/net6.0/ref/Library.Api.Host.dll
 /Users/joeiprivat/Documents/Projects/CodeSamples/LibraryApi/Library.Api.Host/bin/Debug/net6.0/Library.Api.Controllers.dll
 /Users/joeiprivat/Documents/Projects/CodeSamples/LibraryApi/Library.Api.Host/bin/Debug/net6.0/Library.Api.Controllers.pdb
+/Users/joeiprivat/Documents/Projects/CodeSamples/LibraryApi/Library.Api.Host/bin/Debug/net6.0/Library.Data.Adapters.Sql.dll
+/Users/joeiprivat/Documents/Projects/CodeSamples/LibraryApi/Library.Api.Host/bin/Debug/net6.0/Library.Data.Adapters.Sql.pdb

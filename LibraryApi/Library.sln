@@ -7,9 +7,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Api.Host", "Library
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Core.Application", "Library.Core.Application\Library.Core.Application.csproj", "{4DD7C84B-2BA3-42FA-98E5-79EB54CFBD73}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Core.Models", "Library.Core.Models\Library.Core.Models.csproj", "{557234B3-C8E7-4EB5-BAB0-0011DBAA43A6}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Api.Controllers", "Library.Api.Controllers\Library.Api.Controllers.csproj", "{8A448DFA-FBDF-46CE-BA3D-227D0B676481}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Data.Adapters.Sql", "Library.Data.Adapters\Library.Data.Adapters.Sql.csproj", "{6145033A-FE0F-4EA7-B5C6-B4333C2A6241}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{181222C3-2D6D-447E-9A63-416EF00FC2C5}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,14 +30,14 @@ Global
 		{4DD7C84B-2BA3-42FA-98E5-79EB54CFBD73}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4DD7C84B-2BA3-42FA-98E5-79EB54CFBD73}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4DD7C84B-2BA3-42FA-98E5-79EB54CFBD73}.Release|Any CPU.Build.0 = Release|Any CPU
-		{557234B3-C8E7-4EB5-BAB0-0011DBAA43A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{557234B3-C8E7-4EB5-BAB0-0011DBAA43A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{557234B3-C8E7-4EB5-BAB0-0011DBAA43A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{557234B3-C8E7-4EB5-BAB0-0011DBAA43A6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8A448DFA-FBDF-46CE-BA3D-227D0B676481}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8A448DFA-FBDF-46CE-BA3D-227D0B676481}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A448DFA-FBDF-46CE-BA3D-227D0B676481}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A448DFA-FBDF-46CE-BA3D-227D0B676481}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6145033A-FE0F-4EA7-B5C6-B4333C2A6241}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6145033A-FE0F-4EA7-B5C6-B4333C2A6241}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6145033A-FE0F-4EA7-B5C6-B4333C2A6241}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6145033A-FE0F-4EA7-B5C6-B4333C2A6241}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -2,14 +2,13 @@
 using Library.Api.Models;
 using Library.Core.Models;
 
-namespace Library.Api.Controllers.Mapping
+namespace Library.Api.Controllers.Mapping;
+
+public class MappingProfile : Profile
 {
-    public class MappingProfile : Profile
+	public MappingProfile()
 	{
-		public MappingProfile()
-		{
-            CreateMap<Book, BookResponse>();
-        }
+        CreateMap<Book, BookResponse>();
     }
 }
 

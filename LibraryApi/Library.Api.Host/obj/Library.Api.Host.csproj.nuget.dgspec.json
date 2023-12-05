@@ -106,6 +106,9 @@
               },
               "/Users/joeiprivat/Documents/Projects/CodeSamples/LibraryApi/Library.Core.Application/Library.Core.Application.csproj": {
                 "projectPath": "/Users/joeiprivat/Documents/Projects/CodeSamples/LibraryApi/Library.Core.Application/Library.Core.Application.csproj"
+              },
+              "/Users/joeiprivat/Documents/Projects/CodeSamples/LibraryApi/Library.Data.Adapters/Library.Data.Adapters.Sql.csproj": {
+                "projectPath": "/Users/joeiprivat/Documents/Projects/CodeSamples/LibraryApi/Library.Data.Adapters/Library.Data.Adapters.Sql.csproj"
               }
             }
           }
@@ -169,11 +172,7 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {
-              "/Users/joeiprivat/Documents/Projects/CodeSamples/LibraryApi/Library.Core.Models/Library.Core.Models.csproj": {
-                "projectPath": "/Users/joeiprivat/Documents/Projects/CodeSamples/LibraryApi/Library.Core.Models/Library.Core.Models.csproj"
-              }
-            }
+            "projectReferences": {}
           }
         },
         "warningProperties": {
@@ -211,14 +210,14 @@
         }
       }
     },
-    "/Users/joeiprivat/Documents/Projects/CodeSamples/LibraryApi/Library.Core.Models/Library.Core.Models.csproj": {
+    "/Users/joeiprivat/Documents/Projects/CodeSamples/LibraryApi/Library.Data.Adapters/Library.Data.Adapters.Sql.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/joeiprivat/Documents/Projects/CodeSamples/LibraryApi/Library.Core.Models/Library.Core.Models.csproj",
-        "projectName": "Library.Core.Models",
-        "projectPath": "/Users/joeiprivat/Documents/Projects/CodeSamples/LibraryApi/Library.Core.Models/Library.Core.Models.csproj",
+        "projectUniqueName": "/Users/joeiprivat/Documents/Projects/CodeSamples/LibraryApi/Library.Data.Adapters/Library.Data.Adapters.Sql.csproj",
+        "projectName": "Library.Data.Adapters.Sql",
+        "projectPath": "/Users/joeiprivat/Documents/Projects/CodeSamples/LibraryApi/Library.Data.Adapters/Library.Data.Adapters.Sql.csproj",
         "packagesPath": "/Users/joeiprivat/.nuget/packages/",
-        "outputPath": "/Users/joeiprivat/Documents/Projects/CodeSamples/LibraryApi/Library.Core.Models/obj/",
+        "outputPath": "/Users/joeiprivat/Documents/Projects/CodeSamples/LibraryApi/Library.Data.Adapters/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/joeiprivat/.nuget/NuGet/NuGet.Config"
@@ -232,7 +231,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "/Users/joeiprivat/Documents/Projects/CodeSamples/LibraryApi/Library.Core.Application/Library.Core.Application.csproj": {
+                "projectPath": "/Users/joeiprivat/Documents/Projects/CodeSamples/LibraryApi/Library.Core.Application/Library.Core.Application.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -244,6 +247,16 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

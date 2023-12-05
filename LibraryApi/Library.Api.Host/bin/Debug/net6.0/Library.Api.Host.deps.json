@@ -10,6 +10,7 @@
         "dependencies": {
           "Library.Api.Controllers": "1.0.0",
           "Library.Core.Application": "1.0.0",
+          "Library.Data.Adapters.Sql": "1.0.0",
           "Swashbuckle.AspNetCore": "6.5.0"
         },
         "runtime": {
@@ -141,16 +142,20 @@
       },
       "Library.Core.Application/1.0.0": {
         "dependencies": {
-          "Library.Core.Models": "1.0.0",
           "MediatR": "12.2.0"
         },
         "runtime": {
           "Library.Core.Application.dll": {}
         }
       },
-      "Library.Core.Models/1.0.0": {
+      "Library.Data.Adapters.Sql/1.0.0": {
+        "dependencies": {
+          "AutoMapper": "12.0.1",
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
+          "Library.Core.Application": "1.0.0"
+        },
         "runtime": {
-          "Library.Core.Models.dll": {}
+          "Library.Data.Adapters.Sql.dll": {}
         }
       }
     }
@@ -276,7 +281,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Library.Core.Models/1.0.0": {
+    "Library.Data.Adapters.Sql/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

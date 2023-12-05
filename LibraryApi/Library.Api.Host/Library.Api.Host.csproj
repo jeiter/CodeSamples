@@ -18,5 +18,8 @@
     <ProjectReference Include="..\Library.Api.Controllers\Library.Api.Controllers.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
+    <ProjectReference Include="..\Library.Data.Adapters\Library.Data.Adapters.Sql.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
   </ItemGroup>
 </Project>

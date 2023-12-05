@@ -9,15 +9,16 @@
   <ItemGroup>
     <None Remove="Commands\" />
     <None Remove="Queries\" />
+    <None Remove="Ports\" />
+    <None Remove="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Commands\" />
     <Folder Include="Queries\" />
+    <Folder Include="Ports\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MediatR" Version="12.2.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Library.Core.Models\Library.Core.Models.csproj" />
   </ItemGroup>
 </Project>
