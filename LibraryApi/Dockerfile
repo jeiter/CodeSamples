@@ -12,4 +12,4 @@ WORKDIR /publish
 COPY --from=build /publish .
 EXPOSE 80
 
-ENTRYPOINT ["dotnet", "Library.Api.Controllers.dll"]
+ENTRYPOINT ["dotnet", "Library.Api.Hosting.dll"]
