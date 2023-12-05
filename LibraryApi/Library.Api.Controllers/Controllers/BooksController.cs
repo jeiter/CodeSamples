@@ -23,7 +23,12 @@ public class BooksController : ControllerBase
         _logger = logger;
     }
 
+    /// <summary>
+    /// Get a list of books.
+    /// </summary>
+    /// <returns></returns>
     [HttpGet(Name = "GetBooks")]
+    [Produces("application/json")]
     public async Task<IEnumerable<BookResponse>> GetAsync()
     {
         _logger.LogInformation("Get Books");
