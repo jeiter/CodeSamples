@@ -9,7 +9,8 @@ namespace Library.Api.Controllers;
 
 
 [ApiController]
-[Route("[controller]")]
+[ApiVersion("1.0")]
+[Route("api/v{version:apiVersion}/[controller]")]
 public class BooksController : ControllerBase
 {
     private readonly IMediator _mediator;
