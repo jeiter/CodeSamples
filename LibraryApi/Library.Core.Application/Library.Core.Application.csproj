@@ -15,7 +15,7 @@
     <Folder Include="Queries\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="MediatR" Version="12.1.1" />
+    <PackageReference Include="MediatR" Version="12.2.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Library.Core.Models\Library.Core.Models.csproj" />
