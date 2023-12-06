@@ -17,6 +17,6 @@ public class GetBooksHandler : IRequestHandler<GetBooksQuery, IEnumerable<Book>>
   
     public async Task<IEnumerable<Book>> Handle(GetBooksQuery request, CancellationToken cancellationToken)
     {
-        return await _booksAdapter.GetBooks(cancellationToken);
+        return await _booksAdapter.GetBooksAsync(cancellationToken);
     }
 }

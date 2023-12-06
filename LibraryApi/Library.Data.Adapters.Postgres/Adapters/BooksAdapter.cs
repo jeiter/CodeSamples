@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Library.Core.Application.Ports;
 using Library.Core.Models;
+using Library.Data.Adapters.Postgres.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
@@ -21,30 +22,44 @@ public class BooksAdapter : IBooksPort
 	}
 
     /// <inheritdoc />
-    public async Task<IEnumerable<Book>> GetBooks(CancellationToken cancellationToken)
+    public async Task<IEnumerable<Book>> GetBooksAsync(CancellationToken cancellationToken)
     {
-        _logger.LogDebug("Method 'GetBooks' started");
+        _logger.LogDebug("Method 'GetBooksAsync' started");
 
         var books = await _libraryContext.Books
             .OrderBy(b => b.Title)
             .ToListAsync(cancellationToken);
 
-        _logger.LogDebug("Method 'GetBooks' finished");
+        _logger.LogDebug("Method 'GetBooksAsync' finished");
 
         return _mapper.Map<IEnumerable<Book>>(books);
     }
 
     /// <inheritdoc />
-    public async Task<Book> GetBookById(string id, CancellationToken cancellationToken)
+    public async Task<Book> GetBookByIdAsync(string id, CancellationToken cancellationToken)
     {
-        _logger.LogDebug("Method 'GetBookById' started");
+        _logger.LogDebug("Method 'GetBookByIdAsync' started");
 
         var book = await _libraryContext.Books
             .Where(b => b.Id == id)
             .FirstOrDefaultAsync(cancellationToken);
 
-        _logger.LogDebug("Method 'GetBooks' finished");
+        _logger.LogDebug("Method 'GetBookByIdAsync' finished");
 
         return _mapper.Map<Book>(book);
+    }
+
+    /// <inheritdoc />
+    public async Task<Book> AddBookAsync(Book book, CancellationToken cancellationToken)
+    {
+        _logger.LogDebug("Method 'AddBookAsync' started");
+
+        var addedBook = await _libraryContext.Books.AddAsync(_mapper.Map<BookEntity>(book), cancellationToken);
+
+        await _libraryContext.SaveChangesAsync(cancellationToken);
+
+        _logger.LogDebug("Method 'AddBookAsync' finished");
+
+        return _mapper.Map<Book>(addedBook.Entity);
     }
 }

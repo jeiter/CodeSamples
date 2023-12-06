@@ -8,6 +8,6 @@ public class MappingProfile : Profile
 {
     public MappingProfile()
     {
-        CreateMap<Book, BookEntity>();
+        CreateMap<Book, BookEntity>().ReverseMap();
     }
 }

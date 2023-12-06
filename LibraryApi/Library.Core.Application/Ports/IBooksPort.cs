@@ -9,7 +9,7 @@ public interface IBooksPort
     /// </summary>
     /// <param name="cancellationToken"></param>
     /// <returns></returns>
-    Task<IEnumerable<Book>> GetBooks(CancellationToken cancellationToken);
+    Task<IEnumerable<Book>> GetBooksAsync(CancellationToken cancellationToken);
 
     /// <summary>
     /// Gets a book by id
@@ -17,5 +17,13 @@ public interface IBooksPort
     /// <param name="id"></param>
     /// <param name="cancellationToken"></param>
     /// <returns></returns>
-    Task<Book> GetBookById(string id, CancellationToken cancellationToken);
+    Task<Book> GetBookByIdAsync(string id, CancellationToken cancellationToken);
+
+    /// <summary>
+    /// Adds a book
+    /// </summary>
+    /// <param name="book"></param>
+    /// <param name="cancellationToken"></param>
+    /// <returns></returns>
+    Task<Book> AddBookAsync(Book book, CancellationToken cancellationToken);
 }

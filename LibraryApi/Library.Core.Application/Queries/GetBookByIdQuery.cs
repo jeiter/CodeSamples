@@ -4,15 +4,7 @@ using MediatR;
 
 namespace Library.Core.Application.Queries;
 
-public record GetBookByIdQuery : IRequest<Book>
-{
-    public string Id { get; }
-
-    public GetBookByIdQuery(string id)
-    {
-        Id = id;
-    }
-};
+public record GetBookByIdQuery(string Id) : IRequest<Book>;
 
 public class GetBookHandler : IRequestHandler<GetBookByIdQuery, Book>
 {
@@ -25,6 +17,6 @@ public class GetBookHandler : IRequestHandler<GetBookByIdQuery, Book>
 
     public async Task<Book> Handle(GetBookByIdQuery request, CancellationToken cancellationToken)
     {
-        return await _booksAdapter.GetBookById(request.Id,cancellationToken);
+        return await _booksAdapter.GetBookByIdAsync(request.Id,cancellationToken);
     }
 }

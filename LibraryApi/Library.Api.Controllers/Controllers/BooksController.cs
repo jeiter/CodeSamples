@@ -1,6 +1,9 @@
 ﻿using AutoMapper;
+using Library.Api.Controllers.Controllers.Models;
 using Library.Api.Models;
+using Library.Core.Application.Commands;
 using Library.Core.Application.Queries;
+using Library.Core.Models;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -25,6 +28,21 @@ public class BooksController : ControllerBase
     }
 
     /// <summary>
+    /// Create a new book.
+    /// </summary>
+    /// <returns></returns>
+    [HttpPost(Name = "PostBook")]
+    [Produces("application/json")]
+    public async Task<BookResponse> PostAsync([FromBody]BookRequest bookRequest)
+    {
+        _logger.LogInformation("Create book");
+
+        var book = await _mediator.Send(new AddBookCommand(_mapper.Map<Book>(bookRequest)));
+
+        return _mapper.Map<BookResponse>(book);
+    }
+
+    /// <summary>
     /// Get a list of books.
     /// </summary>
     /// <returns></returns>
@@ -32,7 +50,7 @@ public class BooksController : ControllerBase
     [Produces("application/json")]
     public async Task<IEnumerable<BookResponse>> GetAsync()
     {
-        _logger.LogInformation("Get Books");
+        _logger.LogInformation("Get books");
 
         var books = await _mediator.Send(new GetBooksQuery());
 
@@ -48,7 +66,7 @@ public class BooksController : ControllerBase
     [Produces("application/json")]
     public async Task<BookResponse> GetByIdAsync([FromRoute]string id)
     {
-        _logger.LogInformation("Get Books");
+        _logger.LogInformation("Get book by id");
 
         var book = await _mediator.Send(new GetBookByIdQuery(id));
 

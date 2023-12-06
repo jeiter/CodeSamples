@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Library.Api.Controllers.Controllers.Models;
 using Library.Api.Models;
 using Library.Core.Models;
 
@@ -9,6 +10,7 @@ public class MappingProfile : Profile
 	public MappingProfile()
 	{
         CreateMap<Book, BookResponse>();
+        CreateMap<BookRequest, Book>();
     }
 }
 
