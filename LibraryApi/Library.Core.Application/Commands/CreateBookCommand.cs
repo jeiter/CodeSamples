@@ -4,18 +4,18 @@ using MediatR;
 
 namespace Library.Core.Application.Commands;
 
-public record AddBookCommand(Book Book) : IRequest<Book>;
+public record CreateBookCommand(Book Book) : IRequest<Book>;
 
-public class AddBookCommandHandler : IRequestHandler<AddBookCommand, Book>
+public class CreateBookCommandHandler : IRequestHandler<CreateBookCommand, Book>
 {
     private readonly IBooksPort _booksAdapter;
 
-    public AddBookCommandHandler(IBooksPort booksAdapter)
+    public CreateBookCommandHandler(IBooksPort booksAdapter)
     {
         _booksAdapter = booksAdapter;
     }
 
-    public async Task<Book> Handle(AddBookCommand request, CancellationToken cancellationToken)
+    public async Task<Book> Handle(CreateBookCommand request, CancellationToken cancellationToken)
     {
         return await _booksAdapter.AddBookAsync(request.Book, cancellationToken);
     }

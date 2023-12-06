@@ -41,7 +41,7 @@ public class BooksController : ControllerBase
     {
         _logger.LogInformation("Create book");
 
-        var book = await _mediator.Send(new AddBookCommand(_mapper.Map<Book>(bookRequest)));
+        var book = await _mediator.Send(new CreateBookCommand(_mapper.Map<Book>(bookRequest)));
 
         return CreatedAtRoute("GetBookById", new { id = book.Id }, _mapper.Map<BookResponse>(book));
     }

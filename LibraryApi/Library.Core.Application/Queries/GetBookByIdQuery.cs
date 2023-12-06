@@ -6,11 +6,11 @@ namespace Library.Core.Application.Queries;
 
 public record GetBookByIdQuery(string Id) : IRequest<Book>;
 
-public class GetBookHandler : IRequestHandler<GetBookByIdQuery, Book>
+public class GetBookByIdHandler : IRequestHandler<GetBookByIdQuery, Book>
 {
     private readonly IBooksPort _booksAdapter;
 
-    public GetBookHandler(IBooksPort booksAdapter)
+    public GetBookByIdHandler(IBooksPort booksAdapter)
     {
         _booksAdapter = booksAdapter;
     }

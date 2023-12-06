@@ -30,3 +30,9 @@ jobs:
       inputs:
         command: 'build'
         projects: ${{ variables.solution }}
+
+    - task: DotNetCoreCLI@2
+      displayName: Test Solution
+      inputs:
+        command: 'test'
+        projects: ${{ variables.solution }}
