@@ -8,6 +8,8 @@ public class MappingProfile : Profile
 {
     public MappingProfile()
     {
-        CreateMap<Book, BookEntity>().ReverseMap();
+        CreateMap<Book, BookEntity>()
+            .ForMember(b => b.Id, opt => opt.Ignore());
+        CreateMap<BookEntity, Book>();
     }
 }

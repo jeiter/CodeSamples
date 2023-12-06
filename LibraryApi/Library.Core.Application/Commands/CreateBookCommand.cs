@@ -17,9 +17,6 @@ public class AddBookCommandHandler : IRequestHandler<AddBookCommand, Book>
 
     public async Task<Book> Handle(AddBookCommand request, CancellationToken cancellationToken)
     {
-        var book = request.Book;
-        book.Id = Guid.NewGuid().ToString();
-
-        return await _booksAdapter.AddBookAsync(book, cancellationToken);
+        return await _booksAdapter.AddBookAsync(request.Book, cancellationToken);
     }
 }

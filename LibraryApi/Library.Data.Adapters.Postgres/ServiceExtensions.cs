@@ -17,7 +17,6 @@ public static class ServiceExtensions
 
         services.AddAutoMapper(typeof(MappingProfile));
 
-
         return services;
     }
 }

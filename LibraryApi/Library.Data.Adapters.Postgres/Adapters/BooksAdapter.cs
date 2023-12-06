@@ -41,7 +41,9 @@ public class BooksAdapter : IBooksPort
     /// <inheritdoc />
     public async Task<Book> AddBookAsync(Book book, CancellationToken cancellationToken)
     {
-        var addedBook = await _libraryContext.Books.AddAsync(_mapper.Map<BookEntity>(book), cancellationToken);
+        var bookEntity = _mapper.Map<BookEntity>(book);
+        bookEntity.Id = Guid.NewGuid().ToString();
+        var addedBook = await _libraryContext.Books.AddAsync(bookEntity, cancellationToken);
         await _libraryContext.SaveChangesAsync(cancellationToken);
 
         return _mapper.Map<Book>(addedBook.Entity);
@@ -62,12 +64,7 @@ public class BooksAdapter : IBooksPort
         var bookToUpdate = await _libraryContext.Books.FirstAsync(b => b.Id == id, cancellationToken);
 
         // Update fields
-        bookToUpdate.Title = book.Title;
-        bookToUpdate.Summary = book.Summary;
-        bookToUpdate.Author = book.Author;
-        bookToUpdate.NumberOfPages = book.NumberOfPages;
-        bookToUpdate.Publisher = book.Publisher;
-        bookToUpdate.PublishedOn = book.PublishedOn;
+        _mapper.Map(book, bookToUpdate);
 
         var updatedBook = _libraryContext.Update(bookToUpdate);
         await _libraryContext.SaveChangesAsync(cancellationToken);
