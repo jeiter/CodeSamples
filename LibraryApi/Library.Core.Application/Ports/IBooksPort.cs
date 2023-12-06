@@ -10,4 +10,12 @@ public interface IBooksPort
     /// <param name="cancellationToken"></param>
     /// <returns></returns>
     Task<IEnumerable<Book>> GetBooks(CancellationToken cancellationToken);
+
+    /// <summary>
+    /// Gets a book by id
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="cancellationToken"></param>
+    /// <returns></returns>
+    Task<Book> GetBookById(string id, CancellationToken cancellationToken);
 }

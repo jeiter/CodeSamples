@@ -36,6 +36,22 @@ public class BooksController : ControllerBase
 
         var books = await _mediator.Send(new GetBooksQuery());
 
-        return _mapper.Map<IEnumerable<Models.BookResponse>>(books);
+        return _mapper.Map<IEnumerable<BookResponse>>(books);
+    }
+
+    /// <summary>
+    /// Get a book by id.
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    [HttpGet("{id}", Name = "GetBookById")]
+    [Produces("application/json")]
+    public async Task<BookResponse> GetByIdAsync([FromRoute]string id)
+    {
+        _logger.LogInformation("Get Books");
+
+        var book = await _mediator.Send(new GetBookByIdQuery(id));
+
+        return _mapper.Map<BookResponse>(book);
     }
 }

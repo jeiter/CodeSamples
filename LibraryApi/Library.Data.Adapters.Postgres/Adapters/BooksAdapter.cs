@@ -33,4 +33,18 @@ public class BooksAdapter : IBooksPort
 
         return _mapper.Map<IEnumerable<Book>>(books);
     }
+
+    /// <inheritdoc />
+    public async Task<Book> GetBookById(string id, CancellationToken cancellationToken)
+    {
+        _logger.LogDebug("Method 'GetBookById' started");
+
+        var book = await _libraryContext.Books
+            .Where(b => b.Id == id)
+            .FirstOrDefaultAsync(cancellationToken);
+
+        _logger.LogDebug("Method 'GetBooks' finished");
+
+        return _mapper.Map<Book>(book);
+    }
 }

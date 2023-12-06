@@ -2,22 +2,21 @@
 using Library.Core.Models;
 using MediatR;
 
-namespace Library.Core.Application.Queries
+namespace Library.Core.Application.Queries;
+
+public record GetBooksQuery() : IRequest<IEnumerable<Book>>;
+
+public class GetBooksHandler : IRequestHandler<GetBooksQuery, IEnumerable<Book>>
 {
-    public record GetBooksQuery() : IRequest<IEnumerable<Book>>;
+    private readonly IBooksPort _booksAdapter;
 
-    public class GetBooksHandler : IRequestHandler<GetBooksQuery, IEnumerable<Book>>
+    public GetBooksHandler(IBooksPort booksAdapter)
     {
-        private readonly IBooksPort _booksAdapter;
-
-        public GetBooksHandler(IBooksPort booksAdapter)
-        {
-            _booksAdapter = booksAdapter;
-        }
-      
-        public async Task<IEnumerable<Book>> Handle(GetBooksQuery request, CancellationToken cancellationToken)
-        {
-            return await _booksAdapter.GetBooks(cancellationToken);
-        }
+        _booksAdapter = booksAdapter;
+    }
+  
+    public async Task<IEnumerable<Book>> Handle(GetBooksQuery request, CancellationToken cancellationToken)
+    {
+        return await _booksAdapter.GetBooks(cancellationToken);
     }
 }
