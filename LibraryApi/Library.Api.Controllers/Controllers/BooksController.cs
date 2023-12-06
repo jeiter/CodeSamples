@@ -31,6 +31,7 @@ public class BooksController : ControllerBase
     /// <summary>
     /// Create a new book.
     /// </summary>
+    /// <param name="bookRequest"></param>
     /// <returns></returns>
     [HttpPost(Name = "PostBook")]
     [Produces("application/json")]
