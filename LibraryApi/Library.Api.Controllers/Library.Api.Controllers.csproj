@@ -19,13 +19,11 @@
     <None Remove="Mapping\" />
     <None Remove="Controllers\Models\" />
     <None Remove="..\.editorconfig" />
-    <None Remove="Controllers\Common\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
     <Folder Include="Mapping\" />
     <Folder Include="Controllers\Models\" />
-    <Folder Include="Controllers\Common\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Library.Core.Application\Library.Core.Application.csproj" />

@@ -11,7 +11,8 @@ public static class ServiceExtensions
     {
         services.AddAutoMapper(typeof(MappingProfile));
 
-        services.AddTransient<ValidationFilterAttribute>();
+        services.Configure<ApiBehaviorOptions>(options
+            => options.SuppressModelStateInvalidFilter = false);
 
         services.AddControllers();
         services.AddEndpointsApiExplorer();

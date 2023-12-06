@@ -37,7 +37,6 @@ public class BooksController : ControllerBase
     [Produces("application/json")]
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    [ServiceFilter(typeof(ValidationFilterAttribute))]
     public async Task<ActionResult<BookResponse>> PostAsync([FromBody] BookRequest bookRequest)
     {
         _logger.LogInformation("Create book");
