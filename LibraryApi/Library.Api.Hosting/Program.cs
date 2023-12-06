@@ -1,6 +1,6 @@
 ﻿using Library.Core.Application;
 using Library.Api.Controllers;
-using Library.Data.Adapters;
+using Library.Data.Adapters.Postgres;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,7 +13,7 @@ builder.Services.AddApplicationServices();
 builder.Services.AddApiServices();
 
 // Add Data Services
-builder.Services.AddSqlDataServices(builder.Configuration.GetConnectionString("LibraryDatabase"));
+builder.Services.AddPostgresDataServices(builder.Configuration.GetConnectionString("LibraryDatabase"));
 
 #endregion
 

@@ -1,4 +1,4 @@
-﻿namespace Library.Data.Adapters.Sql.Models;
+﻿namespace Library.Data.Adapters.Postgres.Models;
 
 public class BookEntity
 {

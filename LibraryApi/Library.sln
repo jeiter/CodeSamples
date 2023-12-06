@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Core.Application", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Api.Controllers", "Library.Api.Controllers\Library.Api.Controllers.csproj", "{8A448DFA-FBDF-46CE-BA3D-227D0B676481}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Data.Adapters.Sql", "Library.Data.Adapters\Library.Data.Adapters.Sql.csproj", "{6145033A-FE0F-4EA7-B5C6-B4333C2A6241}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Data.Adapters.Postgres", "Library.Data.Adapters.Postgres\Library.Data.Adapters.Postgres.csproj", "{6145033A-FE0F-4EA7-B5C6-B4333C2A6241}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{181222C3-2D6D-447E-9A63-416EF00FC2C5}"
 	ProjectSection(SolutionItems) = preProject

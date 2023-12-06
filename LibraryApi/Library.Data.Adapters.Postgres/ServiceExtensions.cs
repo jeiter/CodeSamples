@@ -1,15 +1,14 @@
 ﻿using Library.Core.Application.Ports;
-using Library.Data.Adapters.Sql;
-using Library.Data.Adapters.Sql.Adapters;
-using Library.Data.Adapters.Sql.Mappings;
+using Library.Data.Adapters.Postgres.Adapters;
+using Library.Data.Adapters.Postgres.Mappings;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Library.Data.Adapters;
+namespace Library.Data.Adapters.Postgres;
 
 public static class ServiceExtensions
 {
-    public static IServiceCollection AddSqlDataServices(this IServiceCollection services, string connectionString)
+    public static IServiceCollection AddPostgresDataServices(this IServiceCollection services, string connectionString)
     {
         services.AddDbContext<LibraryContext>(options => options.UseNpgsql(connectionString));
 

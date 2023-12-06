@@ -18,6 +18,7 @@
     <None Remove="Controllers\" />
     <None Remove="Mapping\" />
     <None Remove="Controllers\Models\" />
+    <None Remove="..\.editorconfig" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
@@ -26,8 +27,5 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Library.Core.Application\Library.Core.Application.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\.editorconfig" />
   </ItemGroup>
 </Project>

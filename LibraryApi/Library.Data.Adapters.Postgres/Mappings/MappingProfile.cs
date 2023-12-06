@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using Library.Core.Models;
-using Library.Data.Adapters.Sql.Models;
+using Library.Data.Adapters.Postgres.Models;
 
-namespace Library.Data.Adapters.Sql.Mappings;
+namespace Library.Data.Adapters.Postgres.Mappings;
 
 public class MappingProfile : Profile
 {

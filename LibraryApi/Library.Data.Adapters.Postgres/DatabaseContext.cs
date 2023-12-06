@@ -1,7 +1,7 @@
-﻿using Library.Data.Adapters.Sql.Models;
+﻿using Library.Data.Adapters.Postgres.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Library.Data.Adapters.Sql;
+namespace Library.Data.Adapters.Postgres;
 
 public class LibraryContext : DbContext
 {
@@ -9,12 +9,6 @@ public class LibraryContext : DbContext
 
     public LibraryContext(DbContextOptions<LibraryContext> options) : base(options)
     {
-
-    }
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        optionsBuilder.UseNpgsql("Host=localhost;Database=library;Username=library_api;Password=S0mePassw0rd");
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

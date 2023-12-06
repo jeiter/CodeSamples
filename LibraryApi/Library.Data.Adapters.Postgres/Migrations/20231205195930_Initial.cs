@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace Library.Data.Adapters.Sql.Migrations
+namespace Library.Data.Adapters.Postgres.Migrations
 {
     public partial class Initial : Migration
     {
