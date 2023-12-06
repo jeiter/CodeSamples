@@ -62,4 +62,14 @@ public class BooksAdapter : IBooksPort
 
         return _mapper.Map<Book>(addedBook.Entity);
     }
+
+    /// <inheritdoc />
+    public async Task DeleteBookAsync(string id, CancellationToken cancellationToken)
+    {
+        var bookToDelete = await _libraryContext.Books.FirstAsync(b => b.Id == id, cancellationToken);
+
+        _libraryContext.Remove(bookToDelete);
+
+        await _libraryContext.SaveChangesAsync(cancellationToken);
+    }
 }

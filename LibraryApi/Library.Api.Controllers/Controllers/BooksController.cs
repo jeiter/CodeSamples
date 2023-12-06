@@ -76,4 +76,21 @@ public class BooksController : ControllerBase
 
         return Ok(_mapper.Map<BookResponse>(book));
     }
+
+    /// <summary>
+    /// Delete a book by id.
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    [HttpDelete("{id}", Name = "DeleteBookById")]
+    [Produces("application/json")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    public async Task<ActionResult> DeleteByIdAsync([FromRoute] string id)
+    {
+        _logger.LogInformation("Delete book by id");
+
+        await _mediator.Send(new DeleteBookCommand(id));
+
+        return NoContent();
+    }
 }
