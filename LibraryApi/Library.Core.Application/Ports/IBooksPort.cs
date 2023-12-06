@@ -28,6 +28,15 @@ public interface IBooksPort
     Task<Book> AddBookAsync(Book book, CancellationToken cancellationToken);
 
     /// <summary>
+    /// Updates a book
+    /// </summary>
+    /// <param name="id"></param>
+    /// <param name="book"></param>
+    /// <param name="cancellationToken"></param>
+    /// <returns></returns>
+    Task<Book> UpdateBookAsync(string id, Book book, CancellationToken cancellationToken);
+
+    /// <summary>
     /// Deletes a book
     /// </summary>
     /// <param name="id"></param>

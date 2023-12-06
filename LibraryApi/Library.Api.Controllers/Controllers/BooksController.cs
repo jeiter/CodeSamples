@@ -47,6 +47,22 @@ public class BooksController : ControllerBase
     }
 
     /// <summary>
+    /// Get a book by id.
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    [HttpPut("{id}", Name = "GetBookById")]
+    [Produces("application/json")]
+    public async Task<ActionResult<BookResponse>> GetByIdAsync([FromRoute] string id, [FromBody] BookRequest bookRequest)
+    {
+        _logger.LogInformation("Get book by id");
+
+        var book = await _mediator.Send(new UpdateBookCommand(id, _mapper.Map<Book>(bookRequest)));
+
+        return Ok(_mapper.Map<BookResponse>(book));
+    }
+
+    /// <summary>
     /// Get a list of books.
     /// </summary>
     /// <returns></returns>
