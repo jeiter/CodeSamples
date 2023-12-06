@@ -37,14 +37,10 @@ public class BooksController : ControllerBase
     [Produces("application/json")]
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult<BookResponse>> PostAsync([FromBody]BookRequest bookRequest)
+    [ServiceFilter(typeof(ValidationFilterAttribute))]
+    public async Task<ActionResult<BookResponse>> PostAsync([FromBody] BookRequest bookRequest)
     {
         _logger.LogInformation("Create book");
-
-        if (!ModelState.IsValid)
-        {
-            return BadRequest();
-        }
 
         var book = await _mediator.Send(new AddBookCommand(_mapper.Map<Book>(bookRequest)));
 
@@ -73,7 +69,7 @@ public class BooksController : ControllerBase
     /// <returns></returns>
     [HttpGet("{id}", Name = "GetBookById")]
     [Produces("application/json")]
-    public async Task<ActionResult<BookResponse>> GetByIdAsync([FromRoute]string id)
+    public async Task<ActionResult<BookResponse>> GetByIdAsync([FromRoute] string id)
     {
         _logger.LogInformation("Get book by id");
 

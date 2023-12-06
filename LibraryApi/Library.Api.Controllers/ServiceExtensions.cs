@@ -11,6 +11,8 @@ public static class ServiceExtensions
     {
         services.AddAutoMapper(typeof(MappingProfile));
 
+        services.AddTransient<ValidationFilterAttribute>();
+
         services.AddControllers();
         services.AddEndpointsApiExplorer();
 
