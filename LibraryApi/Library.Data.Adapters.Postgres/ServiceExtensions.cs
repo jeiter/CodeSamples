@@ -11,10 +11,12 @@ public static class ServiceExtensions
     public static IServiceCollection AddPostgresDataServices(this IServiceCollection services, string connectionString)
     {
         services.AddDbContext<LibraryContext>(options => options.UseNpgsql(connectionString));
+        services.AddHealthChecks().AddNpgSql(connectionString);
 
         services.AddTransient<IBooksPort, BooksAdapter>();
 
         services.AddAutoMapper(typeof(MappingProfile));
+
 
         return services;
     }

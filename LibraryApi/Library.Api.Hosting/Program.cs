@@ -27,6 +27,8 @@ app.UseSwaggerUI(options =>
     options.RoutePrefix = string.Empty;
 });
 
+app.UseHealthChecks("/health");
+
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
