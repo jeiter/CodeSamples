@@ -5,6 +5,7 @@ using Library.Core.Application.Commands;
 using Library.Core.Application.Queries;
 using Library.Core.Models;
 using MediatR;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -33,13 +34,20 @@ public class BooksController : ControllerBase
     /// <returns></returns>
     [HttpPost(Name = "PostBook")]
     [Produces("application/json")]
-    public async Task<BookResponse> PostAsync([FromBody]BookRequest bookRequest)
+    [ProducesResponseType(StatusCodes.Status201Created)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<BookResponse>> PostAsync([FromBody]BookRequest bookRequest)
     {
         _logger.LogInformation("Create book");
 
+        if (!ModelState.IsValid)
+        {
+            return BadRequest();
+        }
+
         var book = await _mediator.Send(new AddBookCommand(_mapper.Map<Book>(bookRequest)));
 
-        return _mapper.Map<BookResponse>(book);
+        return CreatedAtRoute("GetBookById", new { id = book.Id }, _mapper.Map<BookResponse>(book));
     }
 
     /// <summary>
@@ -48,13 +56,13 @@ public class BooksController : ControllerBase
     /// <returns></returns>
     [HttpGet(Name = "GetBooks")]
     [Produces("application/json")]
-    public async Task<IEnumerable<BookResponse>> GetAsync()
+    public async Task<ActionResult<IEnumerable<BookResponse>>> GetAsync()
     {
         _logger.LogInformation("Get books");
 
         var books = await _mediator.Send(new GetBooksQuery());
 
-        return _mapper.Map<IEnumerable<BookResponse>>(books);
+        return Ok(_mapper.Map<IEnumerable<BookResponse>>(books));
     }
 
     /// <summary>
@@ -64,12 +72,12 @@ public class BooksController : ControllerBase
     /// <returns></returns>
     [HttpGet("{id}", Name = "GetBookById")]
     [Produces("application/json")]
-    public async Task<BookResponse> GetByIdAsync([FromRoute]string id)
+    public async Task<ActionResult<BookResponse>> GetByIdAsync([FromRoute]string id)
     {
         _logger.LogInformation("Get book by id");
 
         var book = await _mediator.Send(new GetBookByIdQuery(id));
 
-        return _mapper.Map<BookResponse>(book);
+        return Ok(_mapper.Map<BookResponse>(book));
     }
 }
