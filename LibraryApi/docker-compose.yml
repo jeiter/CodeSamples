@@ -9,7 +9,13 @@ services:
     networks:
       - library-network
     depends_on:
-      - library-db
+      library-db:
+        condition: service_healthy
+    healthcheck:
+      test: "curl --fail http://localhost:80/health || exit 1"
+      interval: 5s
+      timeout: 10s
+      retries: 3
   
   library-db:
     image: postgres
@@ -31,7 +37,7 @@ services:
       interval: 1s
       timeout: 5s
       retries: 10
-      
+
   adminer:
     image: adminer
     restart: always

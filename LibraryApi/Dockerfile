@@ -12,4 +12,6 @@ WORKDIR /publish
 COPY --from=build /publish .
 EXPOSE 80
 
+RUN apt-get update && apt-get install -y curl
+
 ENTRYPOINT ["dotnet", "Library.Api.Hosting.dll"]
