@@ -1,13 +1,15 @@
 ﻿using Library.Api.Controllers.Mapping;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.FeatureManagement;
 using Microsoft.OpenApi.Models;
 
 namespace Library.Api.Controllers;
 
 public static class ServiceExtensions
 {
-    public static IServiceCollection AddApiServices(this IServiceCollection services)
+    public static IServiceCollection AddApiServices(this IServiceCollection services, IConfiguration config)
     {
         services.AddAutoMapper(typeof(MappingProfile));
 
@@ -22,6 +24,8 @@ public static class ServiceExtensions
             options.AssumeDefaultVersionWhenUnspecified = true;
             options.DefaultApiVersion = new ApiVersion(1, 0);
         });
+
+        services.AddFeatureManagement(config.GetSection("FeatureFlags"));
 
         services.AddSwaggerGen(options =>
         {

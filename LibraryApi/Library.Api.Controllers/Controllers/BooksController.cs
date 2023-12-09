@@ -8,10 +8,11 @@ using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Microsoft.FeatureManagement.Mvc;
 
 namespace Library.Api.Controllers;
 
-
+[FeatureGate(FeatureFlags.BookManagement)]
 [ApiController]
 [ApiVersion("1.0")]
 [Route("api/v{version:apiVersion}/[controller]")]

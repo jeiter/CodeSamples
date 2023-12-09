@@ -10,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddApplicationServices();
 
 // Add Api Services
-builder.Services.AddApiServices();
+builder.Services.AddApiServices(builder.Configuration);
 
 // Add Data Services
 builder.Services.AddPostgresDataServices(builder.Configuration.GetConnectionString("LibraryDatabase"));
