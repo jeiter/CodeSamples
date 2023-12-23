@@ -10,7 +10,7 @@ public class MappingProfile : Profile
 	public MappingProfile()
 	{
         CreateMap<Book, BookResponse>();
-        CreateMap<BookRequest, Book>();
+        CreateMap<BookRequest, Book>()
+            .ForMember(b => b.Id, opt => opt.Ignore());
     }
 }
-

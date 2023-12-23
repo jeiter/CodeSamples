@@ -20,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Core.Application.Te
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{02E147C2-882A-454A-A0FA-383AD962806F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Api.Controllers.Tests", "Library.Api.Controllers.Tests\Library.Api.Controllers.Tests.csproj", "{31AEAD06-9129-4D50-A402-3BAD0E47EBD1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,6 +48,10 @@ Global
 		{B6150C72-935E-4DCC-A04F-DE0A3EFE5B8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6150C72-935E-4DCC-A04F-DE0A3EFE5B8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6150C72-935E-4DCC-A04F-DE0A3EFE5B8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31AEAD06-9129-4D50-A402-3BAD0E47EBD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31AEAD06-9129-4D50-A402-3BAD0E47EBD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31AEAD06-9129-4D50-A402-3BAD0E47EBD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31AEAD06-9129-4D50-A402-3BAD0E47EBD1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,5 +61,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B6150C72-935E-4DCC-A04F-DE0A3EFE5B8F} = {02E147C2-882A-454A-A0FA-383AD962806F}
+		{31AEAD06-9129-4D50-A402-3BAD0E47EBD1} = {02E147C2-882A-454A-A0FA-383AD962806F}
 	EndGlobalSection
 EndGlobal
