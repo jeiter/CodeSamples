@@ -1,6 +1,6 @@
 ﻿using Library.Core.Application.Ports;
 using Library.Data.Adapters.Postgres.Adapters;
-using Library.Data.Adapters.Postgres.Mappings;
+using Library.Data.Adapters.Postgres.Mapping;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 

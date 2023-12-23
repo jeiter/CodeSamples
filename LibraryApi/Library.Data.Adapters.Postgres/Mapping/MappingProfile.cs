@@ -2,7 +2,7 @@
 using Library.Core.Models;
 using Library.Data.Adapters.Postgres.Models;
 
-namespace Library.Data.Adapters.Postgres.Mappings;
+namespace Library.Data.Adapters.Postgres.Mapping;
 
 public class MappingProfile : Profile
 {
