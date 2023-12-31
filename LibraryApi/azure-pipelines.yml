@@ -36,3 +36,4 @@ jobs:
       inputs:
         command: 'test'
         projects: ${{ variables.solution }}
+        arguments: '--collect:"XPlat Code Coverage"'

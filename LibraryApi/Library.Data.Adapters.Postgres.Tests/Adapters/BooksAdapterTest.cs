@@ -153,7 +153,7 @@ public class BooksAdapterTest
 
         for (int i = 0; i < numberOfBooks; i++)
         {
-           bookEntities.Add(fixture.Create<BookEntity>());
+            bookEntities.Add(fixture.Create<BookEntity>());
         }
 
         await mockDbContext.AddRangeAsync(bookEntities);
