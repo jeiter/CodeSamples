@@ -39,5 +39,6 @@ jobs:
         arguments: '--collect:"XPlat Code Coverage"'
     
     - task: PublishCodeCoverageResults@2
+      displayName: Publish Test Coverage
       inputs:
         summaryFileLocation: '$(Agent.TempDirectory)/**/coverage.cobertura.xml'
