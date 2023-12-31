@@ -37,3 +37,7 @@ jobs:
         command: 'test'
         projects: ${{ variables.solution }}
         arguments: '--collect:"XPlat Code Coverage"'
+    
+    - task: PublishCodeCoverageResults@2
+      inputs:
+        summaryFileLocation: '$(Agent.TempDirectory)/**/coverage.cobertura.xml'
