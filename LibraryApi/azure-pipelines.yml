@@ -1,0 +1,59 @@
+trigger:
+  branches:
+    include:
+    - '*'
+  paths:
+    include:
+    - 'LibraryApi/*'
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  solution: 'LibraryApi/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+
+jobs:
+  - job: build_and_test
+    displayName: Build and Test
+    steps:
+    - task: DotNetCoreCLI@2
+      displayName: Restore Packages
+      inputs:
+        command: restore
+        projects: ${{ variables.solution }}
+        feedsToUse: select
+
+    - task: DotNetCoreCLI@2
+      displayName: Build Solution
+      inputs:
+        command: build
+        projects: ${{ variables.solution }}
+        configuration: $(buildConfiguration)
+
+    - task: DotNetCoreCLI@2
+      displayName: Test Solution
+      inputs:
+        command: test
+        projects: ${{ variables.solution }}
+        arguments: '--collect:"XPlat Code Coverage"'
+    
+    - task: PublishCodeCoverageResults@2
+      displayName: Publish Test Coverage
+      inputs:
+        summaryFileLocation: '$(Agent.TempDirectory)/**/coverage.cobertura.xml'
+
+    - task: DotNetCoreCLI@2
+      displayName: Publish Solution
+      inputs:
+        command: publish
+        publishWebProjects: True
+        arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+        zipAfterPublish: True
+
+    - task: PublishPipelineArtifact@1
+      displayName: Publish Artifacts
+      inputs:
+        targetPath: '$(Build.ArtifactStagingDirectory)' 
+        artifactName: LibraryApi
