@@ -42,3 +42,17 @@ jobs:
       displayName: Publish Test Coverage
       inputs:
         summaryFileLocation: '$(Agent.TempDirectory)/**/coverage.cobertura.xml'
+
+    - task: DotNetCoreCLI@2
+      displayName: Publish Solution
+      inputs:
+        command: publish
+        publishWebProjects: True
+        arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+        zipAfterPublish: True
+
+    - task: PublishPipelineArtifact@1
+      displayName: Publish Artifacts
+      inputs:
+        targetPath: '$(Build.ArtifactStagingDirectory)' 
+        artifactName: 'LibraryApi'
