@@ -21,21 +21,21 @@ jobs:
     - task: DotNetCoreCLI@2
       displayName: Restore Packages
       inputs:
-        command: 'restore'
+        command: restore
         projects: ${{ variables.solution }}
-        feedsToUse: 'select'
+        feedsToUse: select
 
     - task: DotNetCoreCLI@2
       displayName: Build Solution
       inputs:
-        command: 'build'
+        command: build
         projects: ${{ variables.solution }}
         configuration: $(buildConfiguration)
 
     - task: DotNetCoreCLI@2
       displayName: Test Solution
       inputs:
-        command: 'test'
+        command: test
         projects: ${{ variables.solution }}
         arguments: '--collect:"XPlat Code Coverage"'
     
@@ -56,4 +56,4 @@ jobs:
       displayName: Publish Artifacts
       inputs:
         targetPath: '$(Build.ArtifactStagingDirectory)' 
-        artifactName: 'LibraryApi'
+        artifactName: LibraryApi
