@@ -47,11 +47,16 @@ jobs:
         artifactName: BasicWebApp
   
   - deployment: 
-    - task: AzureRmWebAppDeployment@4
-      inputs:
-        ConnectionType: 'AzureRM'
-        azureSubscription: 'Azure Development Subscription'
-        appType: 'webAppLinux'
-        WebAppName: 'basic-web-app-dev'
-        packageForLinux: '$(Build.ArtifactStagingDirectory)/**/*.zip'
-        RuntimeStack: 'DOTNETCORE|6.0'
+    displayName: Deploy WebApp to Development
+    strategy: 
+      runOnce:
+        deploy:          
+          steps:
+          - task: AzureRmWebAppDeployment@4
+            inputs:
+              ConnectionType: 'AzureRM'
+              azureSubscription: 'Azure Development Subscription'
+              appType: 'webAppLinux'
+              WebAppName: 'basic-web-app-dev'
+              packageForLinux: '$(Build.ArtifactStagingDirectory)/**/*.zip'
+              RuntimeStack: 'DOTNETCORE|6.0'
