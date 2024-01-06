@@ -45,3 +45,13 @@ jobs:
       inputs:
         targetPath: '$(Build.ArtifactStagingDirectory)' 
         artifactName: BasicWebApp
+  
+  - deployment: 
+    - task: AzureRmWebAppDeployment@4
+      inputs:
+        ConnectionType: 'AzureRM'
+        azureSubscription: 'Azure Development Subscription'
+        appType: 'webAppLinux'
+        WebAppName: 'basic-web-app-dev'
+        packageForLinux: '$(Build.ArtifactStagingDirectory)/**/*.zip'
+        RuntimeStack: 'DOTNETCORE|6.0'
