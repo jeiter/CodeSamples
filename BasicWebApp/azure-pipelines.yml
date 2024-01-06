@@ -53,11 +53,18 @@ jobs:
       runOnce:
         deploy:          
           steps:
+          - task: DownloadBuildArtifacts@1
+            inputs:
+              buildType: 'current'
+              downloadType: 'single'
+              artifactName: 'BasicWebApp'
+              itemPattern: '/**/*.zip'
+              downloadPath: '$(System.ArtifactsDirectory)'
           - task: AzureRmWebAppDeployment@4
             inputs:
               ConnectionType: 'AzureRM'
               azureSubscription: 'Azure Development Subscription'
               appType: 'webAppLinux'
               WebAppName: 'basic-web-app-dev'
-              packageForLinux: '$(Build.ArtifactStagingDirectory)/**/*.zip'
+              packageForLinux: '$(System.ArtifactsDirectory)/**/*.zip'
               RuntimeStack: 'DOTNETCORE|6.0'
