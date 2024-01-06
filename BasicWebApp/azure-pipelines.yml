@@ -54,14 +54,10 @@ jobs:
       runOnce:
         deploy:          
           steps:
-          - script: |
-              cd $(Agent.BuildDirectory)
-              ls -la
           - task: AzureRmWebAppDeployment@4
             inputs:
               ConnectionType: 'AzureRM'
               azureSubscription: 'Azure Development Subscription'
-              appType: 'webAppLinux'
+              appType: 'webApp'
               WebAppName: 'basic-web-app-dev'
               packageForLinux: '$(Agent.BuildDirectory)/**/*.zip'
-              RuntimeStack: 'DOTNETCORE|6.0'
