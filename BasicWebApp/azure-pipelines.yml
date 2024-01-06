@@ -48,6 +48,7 @@ jobs:
   
   - deployment: 
     displayName: Deploy WebApp to Development
+    environment: development
     strategy: 
       runOnce:
         deploy:          
