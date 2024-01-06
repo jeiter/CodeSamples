@@ -54,6 +54,9 @@ jobs:
       runOnce:
         deploy:          
           steps:
+          - script: |
+              cd $(System.DefaultWorkingDirectory)
+              ls -la
           - task: AzureRmWebAppDeployment@4
             inputs:
               ConnectionType: 'AzureRM'
