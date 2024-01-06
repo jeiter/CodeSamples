@@ -16,7 +16,7 @@ variables:
 
 jobs:
   - job: build_and_test
-    displayName: Build and Test
+    displayName: Build and Publish
     steps:
     - task: DotNetCoreCLI@2
       displayName: Restore Packages
@@ -44,4 +44,4 @@ jobs:
       displayName: Publish Artifacts
       inputs:
         targetPath: '$(Build.ArtifactStagingDirectory)' 
-        artifactName: LibraryApi
+        artifactName: BasicWebApp
