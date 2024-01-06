@@ -46,7 +46,8 @@ jobs:
         targetPath: '$(Build.ArtifactStagingDirectory)' 
         artifactName: BasicWebApp
   
-  - deployment: 
+  - deployment:
+    dependsOn: build_and_test
     displayName: Deploy WebApp to Development
     environment: development
     strategy: 
