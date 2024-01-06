@@ -55,7 +55,7 @@ jobs:
         deploy:          
           steps:
           - script: |
-              cd $(System.DefaultWorkingDirectory)
+              cd $(Agent.BuildDirectory)
               ls -la
           - task: AzureRmWebAppDeployment@4
             inputs:
@@ -63,5 +63,5 @@ jobs:
               azureSubscription: 'Azure Development Subscription'
               appType: 'webAppLinux'
               WebAppName: 'basic-web-app-dev'
-              packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+              packageForLinux: '$(Agent.BuildDirectory)/**/*.zip'
               RuntimeStack: 'DOTNETCORE|6.0'
