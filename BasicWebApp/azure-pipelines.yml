@@ -14,7 +14,9 @@ variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
 
-jobs:
+stages:
+- stage: Build
+  jobs:
   - job: build_and_test
     displayName: Build and Publish
     steps:
@@ -45,10 +47,12 @@ jobs:
       inputs:
         targetPath: '$(Build.ArtifactStagingDirectory)' 
         artifactName: BasicWebApp
-  
+
+- stage: Development
+  dependsOn: Build
+  jobs:
   - deployment:
-    dependsOn: build_and_test
-    displayName: Deploy WebApp to Development
+    displayName: Deploy WebApp
     environment: development
     strategy: 
       runOnce:
